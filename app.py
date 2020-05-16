@@ -23,5 +23,11 @@ def index():
         print(dict_configData["test"])
     return render_template("index.html", dict_configData=dict_configData)
 
+@app.route("/json", methods=['GET'])
+def json_text():
+    with open('./configData.json') as json_configData:
+        return str(json_configData.read())
+
+
 if __name__ == "__main__":
     app.run('0.0.0.0')
