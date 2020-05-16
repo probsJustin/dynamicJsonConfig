@@ -1,62 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
     <style>
     .wrapper{
-    position:absolute;
-    top:0px;
-    width: 80%;
-    height:100%;
-    margin-left: 10%;
-    background-color:black;
-    box-shadow: 0px 12px 30px 0px rgba(0,0,0,0.2);
+        overflow: visible;
+        position: absolute;
+        top:50px;
+        width: 80%;
+        height: 105%;
+        margin-left: 10%;
+        background-color:black;
+        box-shadow: 0px 12px 30px 0px rgba(0,0,0,0.2);
     }
 
     .inner_wrapper{
-    top:0px;
-    position:absolute;
-    width:97.5%;
-    height:100%;
-    margin-left: 0.25%;
-    margin-right: 0.25%;
-    background-color:white;
-    padding-left: 1%;
-    padding-right:1%;
+        top:0px;
+        position:absolute;
+        height: 100%;
+        width:97.5%;
+        margin-left: 0.25%;
+        margin-right: 0.25%;
+        background-color:white;
+        padding-left: 1%;
+        padding-right:1%;
+        overflow:visible;
     }
-
     .body{
-    top:0px;
-    background-color:grey;
+        font-family: 'Montserrat', sans-serif;
+        top:0px;
+        background-color:grey;
+        overflow: auto;
     }
-
+    p{
+        font-family: 'Montserrat', sans-serif, bold;
+        font-size:20px;
+    }
+    h1{
+        font-family: 'Montserrat', sans-serif, bold;
+        font-size:40px;
+    }
     .header{
-    background-color:black;
-    position:absolute;
-    width:85%;
-    margin-left:7.5%;
-    height:20%;
-    top:0px;
-    border-radius: 0px 0px 50px 50px;
-    box-shadow: 0px 12px 30px 0px rgba(0,0,0,0.2);
-    z-index:10;
+        background-color:black;
+        position:absolute;
+        width:100%;
+        height:60px;
+        left:0px;
+        top:0px;
+        border-radius: 0px 0px 3px 3px;
+        box-shadow: 0px 12px 30px 0px rgba(0,0,0,0.2);
+        font-family: 'Montserrat', sans-serif, bold;
+        font-size:50px;
+        z-index:10;
+        color:white;
+    }
+    .header img{
+        position:absolute;
+        height:60px;
+        left:5px;
+    }
+    .header p{
+        width:50%;
+        position:absolute;
+        top:-18.5px;
+        left:65px;
+        font-size:30px;
+    }
+    li a{
+        font-family: 'Montserrat', sans-serif, bold;
+        text-decoration:none;
+        color:black;
+    }
+    li{
+        padding:5px;
     }
 
-
-
-
+    ul {
+        position:relative;
+        top:-10px;
+        left:1.5%;
+        padding:10px;
+    }
+    .description{
+        font-size:12px;
+        font-family: 'Montserrat', sans-serif, bold;
+    }
+    .fullBodyWrapper{
+        left: 0px;
+        top: 0px;
+        width:100%;
+        height:100%;
+        position: fixed;
+        overflow-y: scroll;
+    }
 
     </style>
 <title>Dynatrace Support Lab Landing Page</title>
+
+
 </head>
 
 <body>
-<div class="header"></div>
+<div class="fullBodyWrapper">
+    <div class="header"><img src="static/appliance-blue_400.png"></img><p>{{ dict_configData["Accessory Information"]["mainLogo"] }}</p></div>
 
-<div class="wrapper">
-    <div class="inner_wrapper">
-        {{ dict_configData["test"] }}
+    <div class="wrapper">
+        <div class="inner_wrapper">
+
+            <ul>
+                {% for x in dict_configData: %}
+                    {% if x != "Accessory Information" %}
+                        <h1>{{ x }}</h1>
+                        {% for y in dict_configData[x]: %}
+
+                            <li><a href="{{ dict_configData[x][y]['link'] }}">{{y}}</a></li>
+                <p><div class="description">{{ dict_configData[x][y]['description']}}</div></p>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+
+            </ul>
+        </div>
     </div>
 </div>
+
 
 </body>
 </html>

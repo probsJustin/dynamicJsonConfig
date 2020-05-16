@@ -1,3 +1,43 @@
 {
-  "test" : "testing"
+  "Accessory Information" : {
+    "mainLogo" : "Dynatrace Support Lab"
+  },
+  "Reproducers" : {
+    "ASP.NET Core" : {
+      "link": "www.google.com",
+      "description": "A short description about this reproducer"
+    },
+    "ASP.NET" : {
+      "link": "www.google.com",
+      "description": "A short description about this reproducer"
+    },
+    "Java" : {
+      "link": "www.google.com",
+      "description": "A short description about this reproducer"
+    },
+    "Weblogic" : {
+      "link": "www.google.com",
+      "description": "A short description about this reproducer"
+    },
+    "WebSphere" : {
+      "link": "www.google.com",
+      "description": "A short description about this reproducer"
+    },
+    "Wildfly" : {
+      "link": "www.google.com",
+      "description": "A short description about this reproducer"
+    }
+  },
+  "Tools" : {
+    "Web Log" : {
+      "link" : "www.google.com",
+      "description" : "A short description about this tool"
+    }
+  },
+  "Informational" : {
+    "Java Documentation" : {
+      "link" : "www.google.com",
+      "description" : "A short description about this information"
+    }
+  }
 }

@@ -20,7 +20,6 @@ sdk = oneagent.get_sdk()
 def index():
     with open('./configData.json') as json_configData:
         dict_configData = json.load(json_configData)
-        print(dict_configData["test"])
     return render_template("index.html", dict_configData=dict_configData)
 
 @app.route("/json", methods=['GET'])
